@@ -7,6 +7,7 @@ gem 'rake'
 gem 'pg'
 gem 'json'
 gem 'psych'
+gem 'RedCloth'
 
 group(:test) do
   gem 'rspec'

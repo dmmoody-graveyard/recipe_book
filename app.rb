@@ -24,3 +24,8 @@ get '/recipes/:id' do
   @recipe = Recipe.find(params.fetch('id'))
   erb(:recipe)
 end
+
+get '/recipes/:id/edit' do
+  @recipe = Recipe.find(params.fetch('id'))
+  erb(:edit_recipe)
+end
