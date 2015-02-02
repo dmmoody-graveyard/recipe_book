@@ -10,12 +10,17 @@ end
 
 post '/recipes' do
   name = params.fetch 'recipe'
-  @recipe = Recipe.create(name: name)
+  instructions = params.fetch 'instructions'
+  @recipe = Recipe.create(name: name, instructions: instructions)
   @recipes = Recipe.all
   redirect '/'
 end
 
+get '/recipes/new' do
+  erb(:new_recipe)
+end
+
 get '/recipes/:id' do
-  @recipe = Recipe.find(params.fetch('id').to_i)
+  @recipe = Recipe.find(params.fetch('id'))
   erb(:recipe)
 end
