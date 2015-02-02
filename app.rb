@@ -14,3 +14,8 @@ post '/recipes' do
   @recipes = Recipe.all
   redirect '/'
 end
+
+get '/recipes/:id' do
+  @recipe = Recipe.find(params.fetch('id')).to_i
+  erb(:recipe)
+end
