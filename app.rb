@@ -1,4 +1,4 @@
 require 'bundler/setup'
 Bundler.require(:default)
 
-DIR[FILE.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
