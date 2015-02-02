@@ -1,0 +1,12 @@
+<h3>Here is a list of all your recipes.</h3>
+
+<ul class="list-group">
+  <% @recipes.all.each do |recipe| %>
+	<li><%= recipe.name %></li>
+  <% end %>
+</ul>
+
+<form action="/recipes" method="post">
+	<input type="text" name="recipe" id="recipe" placeholder="Enter your recipe name">
+	<button class="btn btn-default">Submit</button>
+</form>
