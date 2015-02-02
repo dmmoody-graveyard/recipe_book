@@ -38,3 +38,9 @@ patch '/recipes/:id' do
   @recipe.update(name: name, instructions: instructions)
   erb(:recipe)
 end
+
+delete '/recipes/:id/delete' do
+  @recipe = Recipe.find params.fetch('id')
+  @recipe.delete
+  redirect('/')
+end
