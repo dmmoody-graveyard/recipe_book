@@ -16,6 +16,6 @@ post '/recipes' do
 end
 
 get '/recipes/:id' do
-  @recipe = Recipe.find(params.fetch('id')).to_i
+  @recipe = Recipe.find(params.fetch('id').to_i)
   erb(:recipe)
 end
