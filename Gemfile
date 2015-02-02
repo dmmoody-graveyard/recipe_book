@@ -8,6 +8,7 @@ gem 'pg'
 gem 'json'
 gem 'psych'
 gem 'RedCloth'
+gem 'pry'
 
 group(:test) do
   gem 'rspec'
