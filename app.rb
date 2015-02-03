@@ -44,3 +44,14 @@ delete '/recipes/:id/delete' do
   @recipe.delete
   redirect('/')
 end
+
+get '/categories/new' do
+  erb(:new_category)
+end
+
+post '/categories' do
+  name = params.fetch 'category'
+  @category = Category.create(name: name)
+  @recipes = Recipe.all
+  redirect('/')
+end
