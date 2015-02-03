@@ -54,7 +54,7 @@ end
 
 delete '/recipes/:id/delete' do
   @recipe = Recipe.find params.fetch('id')
-  @recipe.delete
+  @recipe.destroy
   redirect('/')
 end
 
