@@ -68,3 +68,8 @@ post '/categories' do
   @recipes = Recipe.all
   redirect('/')
 end
+
+get '/measurements' do
+  @measurements = Measurement.all
+  erb(:measurement)
+end
