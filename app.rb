@@ -14,20 +14,32 @@ post '/recipes' do
   instructions = params.fetch 'instructions'
   @recipe = Recipe.create(name: name, instructions: instructions)
   @recipes = Recipe.all
+  @categories = Category.all
   redirect '/'
 end
 
 get '/recipes/new' do
+  @categories = Category.all
   erb(:new_recipe)
 end
 
 get '/recipes/:id' do
-  @recipe = Recipe.find(params.fetch('id'))
+  @recipe = Recipe.find(params.fetch('id').to_i)
+  @categories = Category.all
   erb(:recipe)
 end
 
-get '/recipes/:id/edit' do
-  @recipe = Recipe.find(params.fetch('id'))
+post '/recipes/:id' do
+  @recipe = Recipe.find(params.fetch('id').to_i)
+  @category = Category.find(params.fetch("category"))
+  @recipe.categories.push(@category)
+  @recipes = Recipe.all
+  @categories = Category.all
+  erb(:recipe)
+end
+
+post '/recipes/:id/edit' do
+  @recipe = Recipe.find(params.fetch('id').to_i)
   erb(:edit_recipe)
 end
 
@@ -36,6 +48,7 @@ patch '/recipes/:id' do
   instructions = params.fetch 'instructions'
   @recipe = Recipe.find(params.fetch('id').to_i)
   @recipe.update(name: name, instructions: instructions)
+  @categories = Category.all
   erb(:recipe)
 end
 
