@@ -73,3 +73,10 @@ get '/measurements' do
   @measurements = Measurement.all
   erb(:measurement)
 end
+
+post '/measurements' do
+  measurement = params.fetch 'measurement'
+  @measurement = Measurement.create(name: measurement)
+  @measurements = Recipe.all
+  redirect '/measurements'
+end

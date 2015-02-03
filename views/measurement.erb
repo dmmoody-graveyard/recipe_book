@@ -1,0 +1,13 @@
+<h3>Measurements</h3>
+
+
+<ul>
+	<% @measurements.each do |measurement| %>
+	<li><%= measurement.name %></li>
+	<% end %>
+</ul>
+
+<form action="/measurements" class="form-group" method="post">
+	<input type="text" name="measurement" id="measurement" class="input-group" placeholder="Enter a new measurement">
+	<button class="btn btn-default btn-sm" type="submit">Add</button>
+</form>
