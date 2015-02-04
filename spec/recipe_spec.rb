@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Recipe do
   it{ should have_and_belong_to_many :categories }
+  it{ should have_many :ingredients_measurements_recipes }
 
   it('validates presence of name') do
     recipe = Recipe.new({:name => ""})

@@ -82,7 +82,7 @@ post '/measurements/new' do
 end
 
 get '/ingredients' do
-  @ingredients = Ingredients.all
+  @ingredients = Ingredient.all
   erb(:ingredient)
 end
 
@@ -90,5 +90,5 @@ post '/ingredients/new' do
   ingredient = params.fetch 'ingredient'
   @ingredient = Ingredient.create(name: ingredient)
   @ingredients = Ingredient.all
-  erb(:ingredient)
+  redirect '/ingredients'
 end
