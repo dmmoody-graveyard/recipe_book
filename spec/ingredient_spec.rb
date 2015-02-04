@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Ingredient do
-  it{ should have_many :ingredients_measurements_recipes }
+  it{ should have_and_belong_to_many :recipes }
+  it{ should have_one :measurement }
 end

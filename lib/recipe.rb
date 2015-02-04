@@ -1,8 +1,6 @@
 class Recipe < ActiveRecord::Base
   has_and_belongs_to_many :categories
-  has_many :ingredients_measurements_recipes
-  has_many :ingredients, :through => :ingredients_measurements_recipes
-  has_many :measurements, :through => :ingredients_measurements_recipes
+  has_and_belongs_to_many :ingredients
   validates(:name, :presence => true)
   before_save(:title_case)
 
