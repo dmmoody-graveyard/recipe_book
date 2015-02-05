@@ -1,14 +1,7 @@
-<h3>Here are all your categories.</h3>
+<h3><%= @category.name %></h3>
 
 <ul>
-	<% @categories.each do |category| %>
-	<li><%= category.name %></li>
+	<% @recipes.each do |recipe| %>
+	<li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
 	<% end %>
 </ul>
-
-<h3>Add a New Category</h3>
-
-<form action="/categories/new" method="post">
-	<input type="text" name="category" id="category" class="form-control" placeholder="Enter your new category">
-	<button class="btn btn-default btn-sm">Add</button>
-</form>

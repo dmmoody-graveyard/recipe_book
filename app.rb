@@ -61,14 +61,21 @@ end
 get '/categories' do
   @categories = Category.all
   @recipes = Recipe.all
-  erb(:category)
+  erb(:new_category)
 end
 
 post '/categories/new' do
   name = params.fetch 'category'
   @category = Category.create(name: name)
   @recipes = Recipe.all
-  redirect('/categories')
+  erb :new_category
+end
+
+get '/categories/:id' do
+  category = params.fetch 'id'
+  @category = Category.find(category)
+  @recipes = @category.recipes
+  erb :category
 end
 
 get '/measurements' do
