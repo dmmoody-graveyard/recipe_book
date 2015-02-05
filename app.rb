@@ -58,15 +58,17 @@ delete '/recipes/:id/delete' do
   redirect('/')
 end
 
-get '/categories/new' do
-  erb(:new_category)
+get '/categories' do
+  @categories = Category.all
+  @recipes = Recipe.all
+  erb(:category)
 end
 
-post '/categories' do
+post '/categories/new' do
   name = params.fetch 'category'
   @category = Category.create(name: name)
   @recipes = Recipe.all
-  redirect('/')
+  redirect('/categories')
 end
 
 get '/measurements' do
