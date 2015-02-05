@@ -1,3 +1,4 @@
 class Measurement < ActiveRecord::Base
-  belongs_to :ingredients_recipes
+  has_one :ingredients_recipes
+  has_one :ingredient, :through => :ingredients_recipes
 end
